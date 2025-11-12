@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cariere - Alătură-te Echipei Boeru's Doner</title>
+    <meta name="description" content="Caută oameni pasionați pentru echipa Boeru's Doner. Bucătar, casier, manager - aplică acum și fă parte din succesul nostru!">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --accent-red: #c62828;
+            --deep-red: #b71c1c;
+            --gold: #C91F1F;
+            --orange: #C91F1F;
+            --dark: #1A1A1A;
+            --dark-gray: #2C2C2C;
+            --medium-gray: #666666;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --light-bg: #FFF8F0;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --font-display: 'Bebas Neue', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+            font-size: 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-order {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Careers Hero */
+        .careers-hero {
+            margin-top: 90px;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #FFE8D6 100%);
+            text-align: center;
+        }
+
+        .careers-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--dark);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .careers-hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-stat {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-red), var(--orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .hero-stat-label {
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        /* Why Join Section */
+        .why-join {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .benefit-description {
+            color: var(--medium-gray);
+            line-height: 1.7;
+        }
+
+        /* Jobs Section */
+        .jobs-section {
+            padding: 80px 40px;
+            background: var(--light-bg);
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .job-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .job-title i {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+        }
+
+        .job-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 25px 0;
+        }
+
+        .job-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark-gray);
+        }
+
+        .job-detail-item i {
+            color: var(--orange);
+            width: 20px;
+        }
+
+        .job-requirements {
+            margin: 25px 0;
+        }
+
+        .job-requirements h5 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .job-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-requirements li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--medium-gray);
+        }
+
+        .job-requirements li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .job-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .job-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Application Form */
+        .application-section {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 15px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .file-upload-label {
+            display: block;
+            border: 2px dashed var(--light-gray);
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--primary-red);
+            background: white;
+        }
+
+        .file-upload-label i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .file-upload-input {
+            display: none;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Messages */
+        .message {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        .message.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: start;
+                padding: 100px 30px;
+                box-shadow: var(--shadow-xl);
+                transition: right 0.3s ease;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-icon"><img src="images/logos.png" alt="Boeru's Doner Logo"></div>
+                <div class="logo-text">BOERU'S DONER</div>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#acasa" class="nav-link">Acasă</a></li>
+                <li><a href="index.html#despre" class="nav-link">Despre</a></li>
+                <li><a href="meniu.html" class="nav-link">Meniu</a></li>
+                <li><a href="index.html#locatii" class="nav-link">Locații</a></li>
+                <li><a href="index.html#franciza" class="nav-link">Franciză</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="angajare.html" class="btn-order">💼 Cariere</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Careers Hero -->
+    <section class="careers-hero">
+        <h1 class="careers-hero-title">ALĂTURĂ-TE ECHIPEI</h1>
+        <p class="careers-hero-subtitle">
+            Căutăm oameni pasionați care vor să facă parte dintr-o echipă dinamică și prietenoasă. 
+            Construiește o carieră de succes alături de noi!
+        </p>
+        
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number">5</div>
+                <div class="hero-stat-label">Locații Active</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">50+</div>
+                <div class="hero-stat-label">Angajați Fericiți</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">100%</div>
+                <div class="hero-stat-label">Mediu Pozitiv</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Section -->
+    <section class="why-join">
+        <div class="container">
+            <h2 class="section-title">DE CE SĂ LUCREZI LA NOI?</h2>
+            <p class="section-subtitle">
+                Oferim un mediu de lucru plăcut, program flexibil și oportunități de dezvoltare
+            </p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Salariu Competitiv</h3>
+                    <p class="benefit-description">
+                        Oferim salarii peste media pieței plus bonusuri de performanță
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏰</div>
+                    <h3 class="benefit-title">Program Flexibil</h3>
+                    <p class="benefit-description">
+                        Ture flexibile adaptate nevoilor tale personale
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3 class="benefit-title">Training & Dezvoltare</h3>
+                    <p class="benefit-description">
+                        Program de formare continuă și oportunități de avansare
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3 class="benefit-title">Echipă Unită</h3>
+                    <p class="benefit-description">
+                        Mediu de lucru plăcut și colegi dedicați
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎁</div>
+                    <h3 class="benefit-title">Beneficii Extra</h3>
+                    <p class="benefit-description">
+                        Bonusuri, reduceri la produse și multe alte avantaje
+                    </p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🚀</div>
+                    <h3 class="benefit-title">Creștere Rapidă</h3>
+                    <p class="benefit-description">
+                        Oportunități reale de promovare și dezvoltare în carieră
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs-section">
+        <div class="container">
+            <h2 class="section-title">POZIȚII DISPONIBILE</h2>
+            <p class="section-subtitle">
+                Descoperă rolul potrivit pentru tine
+            </p>
+            
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3 class="job-title">
+                        <i class="fas fa-utensils"></i>
+                        Bucătar / Grătar
+                    </h3>
+                    <div class="job-details">
+                        <div class="job-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Toate locațiile</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time / Part-time</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Salariu competitiv + bonusuri</span>
+                        </div>
+                    </div>
+                    <div class="job-requirements">
+                        <h5>Cerințe:</h5>
+                        <ul>
+                            <li>Experiență în bucătărie (preferabil)</li>
+                            <li>Atenție la detalii și igienă</li>
+                            <li>Capacitate de lucru în echipă</li>
+                            <li>Rapiditate și eficiență</li>
+                        </ul>
+                    </div>
+                    <button class="job-btn" onclick="scrollToApplication()">
+                        <i class="fas fa-paper-plane"></i> Aplică Acum
+                    </button>
+                </div>
+                
+                <div class="job-card">
+                    <h3 class="job-title">
+                        <i class="fas fa-cash-register"></i>
+                        Casier / Vânzător
+                    </h3>
+                    <div class="job-details">
+                        <div class="job-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Toate locațiile</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time / Part-time</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Salariu atractiv + bonusuri</span>
+                        </div>
+                    </div>
+                    <div class="job-requirements">
+                        <h5>Cerințe:</h5>
+                        <ul>
+                            <li>Experiență în vânzări (avantaj)</li>
+                            <li>Abilități de comunicare excelente</li>
+                            <li>Orientare către client</li>
+                            <li>Seriozitate și punctualitate</li>
+                        </ul>
+                    </div>
+                    <button class="job-btn" onclick="scrollToApplication()">
+                        <i class="fas fa-paper-plane"></i> Aplică Acum
+                    </button>
+                </div>
+                
+                <div class="job-card">
+                    <h3 class="job-title">
+                        <i class="fas fa-user-tie"></i>
+                        Șef de Tură / Manager
+                    </h3>
+                    <div class="job-details">
+                        <div class="job-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bacău, Roman, Moinești</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time</span>
+                        </div>
+                        <div class="job-detail-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>3.500 - 4.500 RON net</span>
+                        </div>
+                    </div>
+                    <div class="job-requirements">
+                        <h5>Cerințe:</h5>
+                        <ul>
+                            <li>Experiență în management (minim 1 an)</li>
+                            <li>Abilități de leadership</li>
+                            <li>Capacitate de organizare</li>
+                            <li>Cunoștințe operare HoReCa</li>
+                        </ul>
+                    </div>
+                    <button class="job-btn" onclick="scrollToApplication()">
+                        <i class="fas fa-paper-plane"></i> Aplică Acum
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-section" id="application">
+        <div class="container">
+            <h2 class="section-title">APLICĂ ACUM</h2>
+            <p class="section-subtitle">
+                Completează formularul și te vom contacta în cel mai scurt timp
+            </p>
+            
+            <div class="form-container">
+                <!-- Success/Error Messages -->
+                <div id="successMessage" class="message success">
+                    <i class="fas fa-check-circle"></i> Aplicația ta a fost trimisă cu succes! Te vom contacta în curând.
+                </div>
+                <div id="errorMessage" class="message error">
+                    <i class="fas fa-exclamation-circle"></i> A apărut o eroare. Te rugăm să încerci din nou.
+                </div>
+
+                <!-- 
+                    INSTRUCȚIUNI SETUP:
+                    1. Mergi pe https://web3forms.com
+                    2. Introdu emailul tău
+                    3. Primești un "Access Key"
+                    4. Înlocuiește "YOUR_ACCESS_KEY_HERE" de mai jos cu key-ul tău
+                -->
+                <form id="applicationForm">
+                    <!-- Web3Forms Access Key - ÎNLOCUIEȘTE CU AL TĂU -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    
+                    <!-- Configurare Email Subject -->
+                    <input type="hidden" name="subject" value="🔥 Aplicație Nouă: Boeru's Doner">
+                    <input type="hidden" name="from_name" value="Boeru's Doner - Sistem Aplicări">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Nume *</label>
+                            <input type="text" name="Nume" class="form-input" required placeholder="Numele tău">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Prenume *</label>
+                            <input type="text" name="Prenume" class="form-input" required placeholder="Prenumele tău">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Email *</label>
+                            <input type="email" name="Email" class="form-input" required placeholder="email@exemplu.ro">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Telefon *</label>
+                            <input type="tel" name="Telefon" class="form-input" required placeholder="0734 XXX XXX">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Poziție Dorită *</label>
+                            <select name="Poziție_Dorită" class="form-select" required>
+                                <option value="">Selectează poziția</option>
+                                <option value="Bucătar / Grătar">Bucătar / Grătar</option>
+                                <option value="Casier / Vânzător">Casier / Vânzător</option>
+                                <option value="Șef de Tură / Manager">Șef de Tură / Manager</option>
+                                <option value="Curier / Livrator">Curier / Livrator</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Locație Preferată *</label>
+                            <select name="Locație_Preferată" class="form-select" required>
+                                <option value="">Selectează locația</option>
+                                <option value="Moinești">Moinești</option>
+                                <option value="Pârjol">Pârjol</option>
+                                <option value="Bacău">Bacău</option>
+                                <option value="Comănești">Comănești</option>
+                                <option value="Roman">Roman</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Experiență Relevantă</label>
+                        <textarea name="Experiență" class="form-textarea" placeholder="Descrie experiența ta de lucru relevantă..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">CV (PDF sau DOC) - Max 5MB *</label>
+                        <label for="cv-upload" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span id="fileUploadText">Click pentru a încărca CV-ul sau trage fișierul aici</span>
+                        </label>
+                        <input type="file" id="cv-upload" name="attachment" accept=".pdf,.doc,.docx" class="file-upload-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Mesaj Adițional</label>
+                        <textarea name="Mesaj" class="form-textarea" placeholder="De ce ai vrea să lucrezi la Boeru's Doner?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Trimite Aplicația
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-wrapper">
+                    <div class="logo-icon"><img src="images/logos.png" alt="Boeru's Doner Logo"></div>
+                    <div class="logo-text">BOERU'S DONER</div>
+                </a>
+                <p>
+                    Gustul autentic al României în fiecare mușcătură. 
+                    Alătură-te echipei câștigătoare!
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Link-uri</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Acasă</a></li>
+                    <li><a href="index.html#despre">Despre</a></li>
+                    <li><a href="meniu.html">Meniu</a></li>
+                    <li><a href="index.html#locatii">Locații</a></li>
+                    <li><a href="index.html#franciza">Franciză</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Locații</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#locatii">Moinești</a></li>
+                    <li><a href="index.html#locatii">Pârjol</a></li>
+                    <li><a href="index.html#locatii">Bacău</a></li>
+                    <li><a href="index.html#locatii">Comănești</a></li>
+                    <li><a href="index.html#locatii">Roman</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:0734XXXXXX">📱 0734 XXX XXX</a></li>
+                    <li><a href="mailto:hr@boerusdoner.ro">📧 HR Department</a></li>
+                    <li><a href="angajare.html">💼 Aplică Acum</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Boeru's Doner. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll to Application
+        function scrollToApplication() {
+            document.getElementById('application').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // File Upload Handler
+        const cvUpload = document.getElementById('cv-upload');
+        const fileUploadText = document.getElementById('fileUploadText');
+
+        cvUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Verificare dimensiune (max 5MB)
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Fișierul este prea mare! Dimensiunea maximă este 5MB.');
+                    this.value = '';
+                    fileUploadText.textContent = 'Click pentru a încărca CV-ul sau trage fișierul aici';
+                    return;
+                }
+                fileUploadText.textContent = `✓ Selectat: ${file.name}`;
+            }
+        });
+
+        // Form Submission
+        const applicationForm = document.getElementById('applicationForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        applicationForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Dezactivează butonul
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se trimite...';
+
+            // Ascunde mesajele anterioare
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+
+            try {
+                const formData = new FormData(applicationForm);
+                
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Succes!
+                    successMessage.classList.add('show');
+                    applicationForm.reset();
+                    fileUploadText.textContent = 'Click pentru a încărca CV-ul sau trage fișierul aici';
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    // Eroare
+                    throw new Error(data.message);
+                }
+
+            } catch (error) {
+                console.error('Eroare:', error);
+                errorMessage.classList.add('show');
+                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } finally {
+                // Reactivează butonul
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Trimite Aplicația';
+            }
+        });
+
+        // Drag & Drop pentru CV
+        const fileUploadLabel = document.querySelector('.file-upload-label');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            fileUploadLabel.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            fileUploadLabel.addEventListener(eventName, () => {
+                fileUploadLabel.style.borderColor = 'var(--primary-red)';
+                fileUploadLabel.style.background = 'white';
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            fileUploadLabel.addEventListener(eventName, () => {
+                fileUploadLabel.style.borderColor = '';
+                fileUploadLabel.style.background = '';
+            });
+        });
+
+        fileUploadLabel.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                cvUpload.files = files;
+                const event = new Event('change');
+                cvUpload.dispatchEvent(event);
+            }
+        });
+    </script>
+</body>
+</html>

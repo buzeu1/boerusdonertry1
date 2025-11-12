@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meniu - Boeru's Doner | Preparate Delicioase</title>
+    <meta name="description" content="Descoperă meniul complet Boeru's Doner: hot-dogs, box-uri, baghete, shaorme și meniuri complete. Prețuri accesibile, ingrediente proaspete.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --accent-red: #c62828;
+            --deep-red: #b71c1c;
+            --gold: #C91F1F;
+            --orange: #C91F1F;
+            --dark: #1A1A1A;
+            --dark-gray: #2C2C2C;
+            --medium-gray: #666666;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --light-bg: #FFF8F0;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.08);
+            --shadow-md: 0 5px 20px rgba(0,0,0,0.12);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            --font-display: 'Bebas Neue', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+            padding: 5px 0;
+            font-size: 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-order {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Menu Hero */
+        .menu-hero {
+            margin-top: 90px;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #FFE8D6 100%);
+            text-align: center;
+        }
+
+        .menu-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--dark);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .menu-hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 30px;
+            background: white;
+            border: 2px solid var(--light-gray);
+            color: var(--dark);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary-red);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .menu-item-image {
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary-red), var(--orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .menu-item-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
+            background: var(--gold);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .menu-item-content {
+            padding: 30px;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .menu-item-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .menu-item-description {
+            color: var(--medium-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Extras Section */
+        .extras-section {
+            background: var(--light-bg);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .extras-title {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            color: var(--dark);
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+
+        .extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .extra-item {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .extra-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .extra-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .extra-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 25px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: start;
+                padding: 100px 30px;
+                box-shadow: var(--shadow-xl);
+                transition: right 0.3s ease;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <div class="logo-icon"><img src="images/logos.png" alt="Boeru's Doner Logo"></div>
+                <div class="logo-text">BOERU'S DONER</div>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#acasa" class="nav-link">Acasă</a></li>
+                <li><a href="index.html#despre" class="nav-link">Despre</a></li>
+                <li><a href="meniu.html" class="nav-link">Meniu</a></li>
+                <li><a href="index.html#locatii" class="nav-link">Locații</a></li>
+                <li><a href="index.html#franciza" class="nav-link">Franciză</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="angajare.html" class="btn-order">💼 Cariere</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+        <h1 class="menu-hero-title">MENIUL NOSTRU</h1>
+        <p class="menu-hero-subtitle">
+            Descoperă o selecție variată de preparate delicioase, gândite pentru toate gusturile
+        </p>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="menu-categories">
+            <button class="category-btn active" data-category="all">Toate</button>
+            <button class="category-btn" data-category="hot-dogs">Hot-Dogs</button>
+            <button class="category-btn" data-category="box">Box-uri</button>
+            <button class="category-btn" data-category="sandwiches">Sandwichuri</button>
+            <button class="category-btn" data-category="bagheta">Baghete</button>
+            <button class="category-btn" data-category="meniuri">Meniuri</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- Hot-Dogs -->
+            <div class="menu-item" data-category="hot-dogs">
+                <div class="menu-item-image" style="position: relative;">
+                    🌭
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Hot-Dog Roll</h3>
+                        <span class="menu-item-price">8.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Hot-dog, mozzarella, lipie, ketchup - 150g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="hot-dogs">
+                <div class="menu-item-image" style="position: relative;">
+                    🌭
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Hot-Dog Clasic</h3>
+                        <span class="menu-item-price">13.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Hot-dog, cartofi, varză, castraveți, 2 sosuri la alegere - 300g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="hot-dogs">
+                <div class="menu-item-image" style="position: relative;">
+                    🌭
+                    <span class="menu-item-badge">Popular</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Hot Dog American</h3>
+                        <span class="menu-item-price">15.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Hot-dog, cartofi, ceapă crocantă, castraveți, cașcaval, 2 sosuri - 300g
+                    </p>
+                </div>
+            </div>
+
+            <!-- Box-uri -->
+            <div class="menu-item" data-category="box">
+                <div class="menu-item-image" style="position: relative;">
+                    📦
+                    <span class="menu-item-badge">Best Seller</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Box de Pui</h3>
+                        <span class="menu-item-price">19.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Carne de pui, cartofi, legume fresh, sosuri - 350g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="box">
+                <div class="menu-item-image" style="position: relative;">
+                    📦
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Box Crispy</h3>
+                        <span class="menu-item-price">21.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Crispy, cartofi, sosuri - 400g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="box">
+                <div class="menu-item-image" style="position: relative;">
+                    📦
+                    <span class="menu-item-badge">Vegetarian</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Box Falafel</h3>
+                        <span class="menu-item-price">19.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Falafel, cartofi, sosuri - 400g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="box">
+                <div class="menu-item-image" style="position: relative;">
+                    📦
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Box Salată Pui</h3>
+                        <span class="menu-item-price">16.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Carne de pui, salată, sosuri - 300g
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sandwichuri -->
+            <div class="menu-item" data-category="sandwiches">
+                <div class="menu-item-image" style="position: relative;">
+                    🥙
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Sandwich Pui</h3>
+                        <span class="menu-item-price">11.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Carne de pui, mozzarella, lipie, castraveți, ketchup - 150g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="sandwiches">
+                <div class="menu-item-image" style="position: relative;">
+                    🥙
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Crispy Roll</h3>
+                        <span class="menu-item-price">16.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Lipie, crispy, salată verde, sosuri - 200g
+                    </p>
+                </div>
+            </div>
+
+            <!-- Baghete -->
+            <div class="menu-item" data-category="bagheta">
+                <div class="menu-item-image" style="position: relative;">
+                    🥖
+                    <span class="menu-item-badge">Top Choice</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Bagheta Crispy</h3>
+                        <span class="menu-item-price">22.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta, crispy, cartofi, legume fresh, sosuri - 450g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="bagheta">
+                <div class="menu-item-image" style="position: relative;">
+                    🥖
+                    <span class="menu-item-badge">Popular</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Bagheta de Pui</h3>
+                        <span class="menu-item-price">22.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta, carne de pui, cartofi, legume fresh, sosuri - 450g
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="bagheta">
+                <div class="menu-item-image" style="position: relative;">
+                    🥖
+                    <span class="menu-item-badge">Premium</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Bagheta de Vită</h3>
+                        <span class="menu-item-price">28.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta, carne de vită, cartofi, legume fresh, sosuri - 450g
+                    </p>
+                </div>
+            </div>
+
+            <!-- Meniuri -->
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Boeru's Pui</h3>
+                        <span class="menu-item-price">29.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Sandwich de pui + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Boeru's Falafel</h3>
+                        <span class="menu-item-price">27.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Sandwich falafel + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                    <span class="menu-item-badge">Premium</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Boeru's Vită</h3>
+                        <span class="menu-item-price">32.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Sandwich de vită + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Bagheta Pui</h3>
+                        <span class="menu-item-price">30.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta de pui + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Bagheta Vită</h3>
+                        <span class="menu-item-price">37.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta de vită + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Bagheta Crispy</h3>
+                        <span class="menu-item-price">30.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Bagheta crispy + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Burger Vită</h3>
+                        <span class="menu-item-price">31.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Burger de vită + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Dublu Burger</h3>
+                        <span class="menu-item-price">37.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        2 burgeri de vită + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+
+            <div class="menu-item" data-category="meniuri">
+                <div class="menu-item-image" style="position: relative;">
+                    🍽️
+                    <span class="menu-item-badge">Premium</span>
+                </div>
+                <div class="menu-item-content">
+                    <div class="menu-item-header">
+                        <h3 class="menu-item-title">Meniu Duble Cheese</h3>
+                        <span class="menu-item-price">39.99 LEI</span>
+                    </div>
+                    <p class="menu-item-description">
+                        Burger dublu cu brânză + Cartofi + Băutură
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Extras Section -->
+    <section class="extras-section">
+        <h2 class="extras-title">EXTRA</h2>
+        <div class="extras-grid">
+            <div class="extra-item">
+                <div class="extra-name">Extra Hot-Dog 50g</div>
+                <div class="extra-price">2.99 LEI</div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-name">Extra Carne de Pui 50g</div>
+                <div class="extra-price">5.99 LEI</div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-name">Extra Carne de Vită 50g</div>
+                <div class="extra-price">7.99 LEI</div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-name">Extra Mozzarella 30g</div>
+                <div class="extra-price">3.99 LEI</div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-name">Extra Bagheta/Lipie 50g</div>
+                <div class="extra-price">3.99 LEI</div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-name">Extra Sos 30g</div>
+                <div class="extra-price">3.99 LEI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-wrapper">
+                    <div class="logo-icon"><img src="images/logos.png" alt="Boeru's Doner Logo"></div>
+                    <div class="logo-text">BOERU'S DONER</div>
+                </a>
+                <p>
+                    Gustul autentic al României în fiecare mușcătură. 
+                    Ingrediente proaspete, prețuri accesibile, calitate premium.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Link-uri</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Acasă</a></li>
+                    <li><a href="index.html#despre">Despre</a></li>
+                    <li><a href="meniu.html">Meniu</a></li>
+                    <li><a href="index.html#locatii">Locații</a></li>
+                    <li><a href="index.html#franciza">Franciză</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Locații</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#locatii">Moinești</a></li>
+                    <li><a href="index.html#locatii">Pârjol</a></li>
+                    <li><a href="index.html#locatii">Bacău</a></li>
+                    <li><a href="index.html#locatii">Comănești</a></li>
+                    <li><a href="index.html#locatii">Roman</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="tel:0734XXXXXX">📱 0734 XXX XXX</a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#c9aaa6a7bda8aabd89aba6acbbbcbaada6a7acbbe7bba6">📧 Email</a></li>
+                    <li><a href="angajare.html">💼 Cariere</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Boeru's Doner. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile Menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Category Filter
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.dataset.category;
+
+                menuItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {

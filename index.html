@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boeru's Doner - Gustul Autentic al României | 5 Locații</title>
-    <meta name="description" content="Boeru's Doner - Cea mai ieftină franciză de shaormerie din România. 5 locații, ingrediente proaspete, prețuri accesibile. Alătură-te succesului!">
-    
+    <title>Boeru's Doner - Gustul Autentic al României</title>
+    <meta name="description" content="Boeru's Doner - Cea mai ieftină franciză de shaormerie din România. 5 locații, ingrediente proaspete, prețuri accesibile.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --primary-red: #C91F1F;
@@ -19,11 +17,7 @@
             --medium-gray: #666666;
             --light-gray: #E0E0E0;
             --white: #FFFFFF;
-            --light-bg: #F5F5F5;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.15);
-            --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
-            --shadow-xl: 0 12px 32px rgba(0,0,0,0.25);
+            --light-bg: #FAF7F2;
             --transition: all 0.3s ease;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Poppins', sans-serif;
@@ -38,14 +32,12 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         body {
             font-family: var(--font-body);
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
             background: var(--white);
         }
 
@@ -88,7 +80,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 10px;
             animation: pulse-logo 2s ease-in-out infinite;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
         }
@@ -97,15 +89,12 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 50%;
         }
 
         @keyframes pulse-logo {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .loader-circle {
@@ -128,27 +117,22 @@
             animation-direction: reverse;
         }
 
-        .loader-text {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            color: white;
-            letter-spacing: 4px;
-            text-align: center;
-            animation: fade-pulse 2s ease-in-out infinite;
-        }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
+        .loader-text {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: white;
+            letter-spacing: 4px;
+            animation: fade-pulse 2s ease-in-out infinite;
+        }
+
         @keyframes fade-pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.6;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
         /* Header */
@@ -159,14 +143,14 @@
             right: 0;
             z-index: 9999;
             transition: var(--transition);
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
         .header.scrolled {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-md);
-            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 12px 0;
         }
 
         .nav-container {
@@ -181,7 +165,7 @@
         .logo-wrapper {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             text-decoration: none;
             transition: var(--transition);
         }
@@ -191,26 +175,33 @@
         }
 
         .logo-icon {
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 12px rgba(201, 31, 31, 0.3);
             padding: 5px;
+            transition: var(--transition);
         }
 
         .logo-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo-wrapper:hover .logo-icon {
+            box-shadow: 0 4px 16px rgba(201, 31, 31, 0.4);
+            transform: rotate(5deg);
         }
 
         .logo-text {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 900;
             color: var(--dark);
             letter-spacing: 1px;
@@ -219,7 +210,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 35px;
             align-items: center;
         }
 
@@ -229,14 +220,13 @@
             font-weight: 600;
             position: relative;
             transition: var(--transition);
-            padding: 5px 0;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
@@ -249,25 +239,20 @@
         }
 
         .btn-order {
-            padding: 12px 30px;
+            padding: 10px 25px;
             background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 14px;
             transition: var(--transition);
-            box-shadow: var(--shadow-md);
-            animation: pulse 2s infinite;
+            box-shadow: 0 2px 10px rgba(201, 31, 31, 0.3);
         }
 
         .btn-order:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(201, 31, 31, 0.4);
         }
 
         .mobile-menu-toggle {
@@ -277,14 +262,12 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 5px;
         }
 
         .mobile-menu-toggle span {
             width: 25px;
             height: 3px;
             background: var(--dark);
-            transition: var(--transition);
             border-radius: 2px;
         }
 
@@ -383,7 +366,7 @@
             font-weight: 600;
             color: var(--primary-red);
             margin-bottom: 25px;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
 
         .hero-title {
@@ -421,13 +404,13 @@
             padding: 25px;
             border-radius: 20px;
             text-align: center;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
 
         .stat-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
         }
 
         .stat-number {
@@ -461,7 +444,7 @@
             font-weight: 700;
             font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 15px rgba(201, 31, 31, 0.3);
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -469,7 +452,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 6px 20px rgba(201, 31, 31, 0.4);
         }
 
         .btn-secondary {
@@ -481,7 +464,7 @@
             font-weight: 700;
             font-size: 1.1rem;
             transition: var(--transition);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -491,7 +474,7 @@
         .btn-secondary:hover {
             background: white;
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         .hero-visual {
@@ -503,7 +486,7 @@
             position: relative;
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
             transform: rotate(-3deg);
             transition: var(--transition);
         }
@@ -532,7 +515,7 @@
             align-items: center;
             justify-content: center;
             font-size: 3rem;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 20px rgba(201, 31, 31, 0.3);
         }
 
         .hero-decoration.top {
@@ -553,10 +536,32 @@
             50% { transform: translateY(-20px); }
         }
 
-        /* Section Styling */
-        .section {
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: white;
             padding: 100px 0;
-            position: relative;
         }
 
         .container {
@@ -611,11 +616,6 @@
             line-height: 1.8;
         }
 
-        /* About Section */
-        .about {
-            background: white;
-        }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -655,7 +655,7 @@
 
         .feature-item:hover {
             transform: translateX(10px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
         }
 
         .feature-icon {
@@ -682,84 +682,125 @@
             margin: 0;
         }
 
-        /* Menu Preview Section */
+        /* Menu Preview */
         .menu-preview {
-            background: linear-gradient(180deg, var(--white) 0%, var(--light-bg) 100%);
+            background: linear-gradient(180deg, #F8F8F8 0%, var(--light-bg) 100%);
+            padding: 80px 40px;
         }
 
-        .menu-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .menu-highlight-card {
-            background: white;
+        .menu-intro {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
             border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(201, 31, 31, 0.25);
+            position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .menu-highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-xl);
+        .menu-intro::before {
+            content: '🌯';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .menu-highlight-image {
-            height: 250px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-red));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-        }
-
-        .menu-highlight-content {
-            padding: 30px;
-        }
-
-        .menu-highlight-title {
-            font-family: var(--font-heading);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .menu-highlight-description {
-            color: var(--medium-gray);
-            line-height: 1.6;
+        .menu-intro h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
         }
 
-        .menu-highlight-price {
-            font-size: 2rem;
+        .menu-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 25px;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-intro strong {
             font-weight: 700;
-            color: var(--primary-red);
-            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
         }
 
-        /* Locations Section */
+        .stats-mini {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 800px;
+            margin: 30px auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-mini div {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-mini strong {
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* Locations */
         .locations {
             background: white;
+            padding: 80px 40px;
         }
 
-        .locations-map-wrapper {
-            margin-top: 60px;
+        .section-title-centered {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle-centered {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
         }
 
         .map-container {
             position: relative;
-            width: 100%;
-            height: 500px;
-            border-radius: 30px;
+            height: 600px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: var(--shadow-xl);
             margin-bottom: 50px;
-            background: var(--light-bg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
         }
 
+        .map-container iframe {
+            border-radius: 25px;
+        }
+
+        /* Map Pins */
         .map-pins {
             position: absolute;
             top: 0;
@@ -767,6 +808,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
+            z-index: 10;
         }
 
         .map-pin {
@@ -778,8 +820,13 @@
 
         .pin-marker {
             font-size: 2.5rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-            animation: bounce 2s infinite;
+            filter: drop-shadow(0 4px 8px rgba(201, 31, 31, 0.5));
+            animation: bounce-pin 2s infinite;
+        }
+
+        @keyframes bounce-pin {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         .pin-popup {
@@ -790,104 +837,124 @@
             background: white;
             padding: 12px 20px;
             border-radius: 15px;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
             font-size: 0.95rem;
             font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .pin-popup::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: white;
         }
 
         .map-pin:hover .pin-popup {
             opacity: 1;
             visibility: visible;
-            bottom: 120%;
+            bottom: 110%;
         }
 
+        /* Locations Grid - 3 + 2 Layout */
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .locations-row-1 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .locations-row-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .location-card {
             background: white;
-            border-radius: 25px;
-            padding: 35px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
-            cursor: pointer;
-            border: 3px solid transparent;
+            border: 2px solid transparent;
         }
 
-        .location-card.active,
         .location-card:hover {
             border-color: var(--primary-red);
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
         }
 
         .location-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .location-name {
             font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: var(--dark);
+            font-size: 1.6rem;
             letter-spacing: 1px;
         }
 
         .location-badge {
-            padding: 6px 15px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-red));
+            padding: 5px 12px;
+            background: var(--primary-red);
             color: white;
-            border-radius: 20px;
+            border-radius: 15px;
             font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .location-details {
-            margin-bottom: 25px;
         }
 
         .location-detail-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px 0;
-            color: var(--dark-gray);
+            gap: 12px;
+            padding: 10px 0;
+            color: var(--dark);
         }
 
         .location-detail-item i {
-            width: 24px;
+            width: 20px;
             color: var(--primary-red);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .location-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .btn-map,
-        .btn-call {
-            padding: 12px;
+        .btn-map, .btn-call {
+            padding: 10px;
             text-align: center;
             text-decoration: none;
-            border-radius: 15px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 0.9rem;
             transition: var(--transition);
         }
 
         .btn-map {
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-red));
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
             color: white;
         }
 
@@ -896,114 +963,14 @@
             color: var(--dark);
         }
 
-        .btn-map:hover,
-        .btn-call:hover {
+        .btn-map:hover, .btn-call:hover {
             transform: scale(1.05);
         }
 
-        /* Franchise Section */
-        .franchise {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-gray) 100%);
-            color: white;
-        }
-
-        .franchise .section-title {
-            color: white;
-        }
-
-        .franchise-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .franchise-info h3 {
-            font-size: 2.5rem;
-            margin-bottom: 25px;
-            color: var(--primary-red);
-            font-family: var(--font-display);
-            letter-spacing: 1px;
-        }
-
-        .franchise-info p {
-            font-size: 1.1rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .franchise-benefits {
-            display: grid;
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border-left: 4px solid var(--primary-red);
-            transition: var(--transition);
-        }
-
-        .benefit-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(10px);
-        }
-
-        .benefit-item i {
-            font-size: 2rem;
-            color: var(--primary-red);
-        }
-
-        .benefit-item div h4 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .benefit-item div p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0;
-        }
-
-        .franchise-price {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-            padding: 35px;
-            background: linear-gradient(135deg, var(--primary-red), var(--accent-red));
-            border-radius: 20px;
-            margin-top: 40px;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .franchise-price i {
-            font-size: 3.5rem;
-            color: white;
-        }
-
-        .franchise-price div h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .franchise-price div p {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin: 0;
-            color: white;
-        }
-
-        /* Testimonials Section */
+        /* Testimonials */
         .testimonials {
             background: linear-gradient(135deg, var(--light-bg) 0%, #FFE8D6 100%);
+            padding: 80px 40px;
             position: relative;
             overflow: hidden;
         }
@@ -1029,7 +996,7 @@
             background: white;
             border-radius: 30px;
             padding: 60px;
-            box-shadow: var(--shadow-xl);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
 
@@ -1106,7 +1073,7 @@
             font-size: 1.8rem;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             color: var(--primary-red);
         }
 
@@ -1116,24 +1083,212 @@
             transform: scale(1.15);
         }
 
-        /* Contact Section */
+        /* Franchise - IMPROVED */
+        .franchise {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-gray) 100%);
+            color: white;
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .franchise::before {
+            content: '💼';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.02;
+            top: 50%;
+            right: -100px;
+            transform: translateY(-50%);
+        }
+
+        .franchise .section-title-centered {
+            color: white;
+        }
+
+        .franchise .section-subtitle-centered {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .franchise-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .franchise-info h3 {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-red);
+            letter-spacing: 1px;
+        }
+
+        .franchise-info > p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 18px;
+            margin: 35px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: start;
+            gap: 18px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 18px;
+            border-left: 4px solid var(--primary-red);
+            transition: var(--transition);
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--primary-red);
+            min-width: 35px;
+            margin-top: 2px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .benefit-item p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .franchise-cta {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 100px;
+        }
+
+        .franchise-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .contact-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .contact-mini-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .contact-mini-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-mini-item i {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            min-width: 25px;
+        }
+
+        .contact-mini-item div h5 {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .contact-mini-item div p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+        }
+
+        .franchise-price {
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(201, 31, 31, 0.3);
+            margin-top: 20px;
+        }
+
+        .franchise-price h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .franchise-price p {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        /* Contact */
         .contact {
             background: linear-gradient(135deg, var(--dark) 0%, #2C2C2C 100%);
             color: white;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact .section-title {
+        .contact::before {
+            content: '📧';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.02;
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%);
+        }
+
+        .contact .section-title-centered {
             color: white;
         }
 
-        .contact-grid {
+        .contact .section-subtitle-centered {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto;
             align-items: start;
         }
 
-        .contact-info {
+        .contact-info-section {
             display: flex;
             flex-direction: column;
             gap: 25px;
@@ -1142,91 +1297,197 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 25px;
-            padding: 30px;
+            gap: 20px;
+            padding: 25px;
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            border-left: 4px solid var(--primary-red);
+            border-radius: 15px;
+            border-left: 3px solid var(--primary-red);
             transition: var(--transition);
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
             transform: translateX(10px);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-red));
+            width: 50px;
+            height: 50px;
+            background: var(--primary-red);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .contact-item div h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: white;
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
-        .contact-item div p {
+        .contact-item p {
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
+            font-size: 0.95rem;
         }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
+        .social-section {
             margin-top: 30px;
         }
 
+        .social-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
         .social-link {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
             color: white;
-            font-size: 1.5rem;
             text-decoration: none;
             transition: var(--transition);
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link i {
+            font-size: 1.8rem;
         }
 
         .social-link:hover {
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-red));
-            transform: scale(1.15);
+            background: var(--primary-red);
+            border-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+
+        .contact-form-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-red), var(--deep-red));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(201, 31, 31, 0.4);
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
         }
 
         /* Footer */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 50px 40px 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.8;
-            margin-top: 20px;
+            gap: 40px;
+            margin-bottom: 30px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
         }
 
         .footer-column h4 {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: var(--primary-red);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .footer-links {
@@ -1234,7 +1495,7 @@
         }
 
         .footer-links li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
@@ -1245,38 +1506,14 @@
 
         .footer-links a:hover {
             color: var(--primary-red);
-            transform: translateX(5px);
-            display: inline-block;
         }
 
         .footer-bottom {
-            padding-top: 30px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Animations */
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            font-size: 0.9rem;
         }
 
         /* Responsive */
@@ -1291,7 +1528,7 @@
                 flex-direction: column;
                 justify-content: start;
                 padding: 100px 30px;
-                box-shadow: var(--shadow-xl);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
                 transition: right 0.3s ease;
             }
 
@@ -1306,13 +1543,38 @@
             .hero-content,
             .about-content,
             .franchise-content,
-            .contact-grid {
+            .contact-wrapper {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-row-1,
+            .locations-row-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-mini {
+                grid-template-columns: 1fr;
+            }
+
+            .franchise-cta {
+                position: static;
             }
         }
 
@@ -1321,16 +1583,20 @@
                 font-size: 2.5rem;
             }
 
-            .section-title {
-                font-size: 2rem;
-            }
-
             .hero-stats {
                 grid-template-columns: 1fr;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .map-container {
+                height: 450px;
             }
         }
     </style>
@@ -1342,7 +1608,7 @@
             <div class="loader-circle"></div>
             <div class="loader-circle"></div>
             <div class="loader-logo">
-                <img src="images/logo.png" alt="Boeru's Doner">
+                <img src="images/logo.png" alt="Logo">
             </div>
         </div>
         <div class="loader-text">BOERU'S DONER</div>
@@ -1353,11 +1619,10 @@
         <nav class="nav-container">
             <a href="/" class="logo-wrapper">
                 <div class="logo-icon">
-                    <img src="images/logo.png" alt="Boeru's Doner Logo">
+                    <img src="images/logo.png" alt="Logo">
                 </div>
                 <div class="logo-text">BOERU'S DONER</div>
             </a>
-            
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#acasa" class="nav-link">Acasă</a></li>
                 <li><a href="#despre" class="nav-link">Despre</a></li>
@@ -1367,7 +1632,6 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="angajare.html" class="btn-order">💼 Cariere</a></li>
             </ul>
-            
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
                 <span></span>
@@ -1422,7 +1686,9 @@
             
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <div class="hero-image">🌯</div>
+                    <div class="hero-image">
+                        <img src="images/shaorma.png" alt="Shaorma Boeru's Doner" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
                     <div class="hero-decoration top">⭐</div>
                     <div class="hero-decoration bottom">🔥</div>
                 </div>
@@ -1431,7 +1697,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="section about" id="despre">
+    <section class="about" id="despre">
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Despre Noi</span>
@@ -1483,7 +1749,10 @@
                 
                 <div class="hero-visual">
                     <div class="hero-image-wrapper">
-                        <div class="hero-image">🍖</div>
+                        <div class="hero-image">
+                             <img src="images/despre-noi.png" alt="Despre Noi" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+
                         <div class="hero-decoration top">🌟</div>
                         <div class="hero-decoration bottom">❤️</div>
                     </div>
@@ -1492,268 +1761,186 @@
         </div>
     </section>
 
-    <!-- Menu Preview Section -->
-    <section class="section menu-preview">
+    <!-- Menu Preview -->
+    <section class="menu-preview">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Meniul Nostru</span>
-                <h2 class="section-title">Preparate de Excepție</h2>
-                <p class="section-subtitle">
-                    Fiecare preparat este o experiență culinară unică. Ingrediente proaspete selecționate zilnic, 
-                    rețete perfecționate timp de ani de zile și o pasiune autentică pentru calitate. 
-                    Descoperă de ce peste 50.000 de clienți ne aleg în fiecare lună.
+            <h2 class="section-title-centered">MENIUL NOSTRU</h2>
+            <p class="section-subtitle-centered">
+                Fiecare preparat este o experiență culinară unică
+            </p>
+
+            <div class="menu-intro">
+                <h3>🔥 DE CE SĂ ALEGI BOERU'S DONER?</h3>
+                <p>
+                    <strong>Ingrediente 100% proaspete</strong> selectate zilnic • <strong>Preparate în fața ta</strong> cu pasiune • <strong>Rețete autentice</strong> perfecționate ani de zile • <strong>Prețuri accesibile</strong> pentru toată lumea
                 </p>
-            </div>
-            
-            <div class="menu-highlights">
-                <div class="menu-highlight-card">
-                    <div class="menu-highlight-image">🌯</div>
-                    <div class="menu-highlight-content">
-                        <h3 class="menu-highlight-title">Bagheta de Pui</h3>
-                        <p class="menu-highlight-description">
-                            Bagheta crocantă, carne de pui fragedă, cartofi aurii, legume proaspete și sosuri speciale
-                        </p>
-                        <div class="menu-highlight-price">22.99 LEI</div>
-                        <a href="meniu.html" class="btn-primary">Vezi Meniul Complet</a>
-                    </div>
+                <div class="stats-mini">
+                    <div><strong>50+</strong> Preparate</div>
+                    <div><strong>15 min</strong> Livrare</div>
+                    <div><strong>⭐ 4.9</strong> Rating</div>
                 </div>
-                
-                <div class="menu-highlight-card">
-                    <div class="menu-highlight-image">📦</div>
-                    <div class="menu-highlight-content">
-                        <h3 class="menu-highlight-title">Box de Pui</h3>
-                        <p class="menu-highlight-description">
-                            Porție generoasă de carne, cartofi, legume fresh și sosurile tale preferate
-                        </p>
-                        <div class="menu-highlight-price">19.99 LEI</div>
-                        <a href="meniu.html" class="btn-primary">Vezi Meniul Complet</a>
-                    </div>
-                </div>
-                
-                <div class="menu-highlight-card">
-                    <div class="menu-highlight-image">🍔</div>
-                    <div class="menu-highlight-content">
-                        <h3 class="menu-highlight-title">Meniu Complet</h3>
-                        <p class="menu-highlight-description">
-                            Preparatul tău favorit + Cartofi + Băutură la alegere
-                        </p>
-                        <div class="menu-highlight-price">De la 29.99 LEI</div>
-                        <a href="meniu.html" class="btn-primary">Vezi Toate Meniurile</a>
-                    </div>
-                </div>
+                <a href="meniu.html" class="btn-primary" style="margin-top: 25px; display: inline-block;">📋 VEZI MENIUL COMPLET →</a>
             </div>
         </div>
     </section>
 
-    <!-- Locations Section -->
-    <section class="section locations" id="locatii">
+    <!-- Locations -->
+    <section class="locations" id="locatii">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Locații</span>
-                <h2 class="section-title">5 Locații în România</h2>
-                <p class="section-subtitle">
-                    Găsește cea mai apropiată locație Boeru's Doner
-                </p>
-            </div>
-            
-            <div class="locations-map-wrapper">
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1396588.7837326713!2d25.5!3d46.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDMwJzAwLjAiTiAyNcKwMzAnMDAuMCJF!5e0!3m2!1sen!2sro!4v1234567890"
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; border-radius: 30px;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                    
-                    <div class="map-pins">
-                        <div class="map-pin" style="top: 60%; left: 25%;">
-                            <div class="pin-marker">📍</div>
-                            <div class="pin-popup"><strong>Comănești</strong></div>
-                        </div>
-                        <div class="map-pin" style="top: 52%; left: 30%;">
-                            <div class="pin-marker">📍</div>
-                            <div class="pin-popup"><strong>Moinești</strong></div>
-                        </div>
-                        <div class="map-pin" style="top: 45%; left: 42%;">
-                            <div class="pin-marker">📍</div>
-                            <div class="pin-popup"><strong>Pârjol</strong></div>
-                        </div>
-                        <div class="map-pin" style="top: 42%; left: 55%;">
-                            <div class="pin-marker">📍</div>
-                            <div class="pin-popup"><strong>Bacău</strong></div>
-                        </div>
-                        <div class="map-pin" style="top: 25%; left: 56%;">
-                            <div class="pin-marker">📍</div>
-                            <div class="pin-popup"><strong>Roman</strong></div>
-                        </div>
+            <h2 class="section-title-centered">LOCAȚIILE NOASTRE</h2>
+            <p class="section-subtitle-centered">5 locații în toată țara</p>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d360658.97773!2d26.3!3d46.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDQyJzAwLjAiTiAyNsKwMTgnMDAuMCJF!5e0!3m2!1sen!2sro!4v1234567890&z=9" width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe>
+                
+                <!-- Map Pins - UPDATED WITH CORRECT POSITIONS -->
+                <div class="map-pins">
+                    <!-- Roman -->
+                    <div class="map-pin" style="top: 23%; left: 56%;" onclick="window.open('https://maps.app.goo.gl/J4whLriSLevistcbA', '_blank')">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-popup"><strong>🌟 Roman</strong></div>
+                    </div>
+                    <!-- Bacău -->
+                    <div class="map-pin" style="top: 43%; left: 59%;" onclick="window.open('https://maps.app.goo.gl/qRRF6KzvKt8Dn3XH9', '_blank')">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-popup"><strong>💎 Bacău</strong></div>
+                    </div>
+                    <!-- Pârjol -->
+                    <div class="map-pin" style="top: 38%; left: 50%;" onclick="window.open('https://maps.app.goo.gl/56i5JBoJYoWu73iAA', '_blank')">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-popup"><strong>⭐ Pârjol</strong></div>
+                    </div>
+                    <!-- Moinești -->
+                    <div class="map-pin" style="top: 50%; left: 45%;" onclick="window.open('https://maps.app.goo.gl/69j62PDmTJc47ukH9', '_blank')">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-popup"><strong>🔥 Moinești</strong></div>
+                    </div>
+                    <!-- Comănești -->
+                    <div class="map-pin" style="top: 58%; left: 40%;" onclick="window.open('https://maps.app.goo.gl/H5gCjWWBKEwutTEC6', '_blank')">
+                        <div class="pin-marker">📍</div>
+                        <div class="pin-popup"><strong>🌟 Comănești</strong></div>
                     </div>
                 </div>
-                
-                <div class="locations-grid">
-                    <div class="location-card active">
+            </div>
+
+            <div class="locations-grid">
+                <!-- Prima linie - 3 locații -->
+                <div class="locations-row-1">
+                    <div class="location-card">
                         <div class="location-header">
                             <h3 class="location-name">MOINEȘTI</h3>
                             <span class="location-badge">🔥 Popular</span>
                         </div>
-                        <div class="location-details">
-                            <div class="location-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Str. Republicii, Nr. 15, Moinești</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span><strong>Luni - Duminică:</strong> 11:00 - 23:00</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-phone"></i>
-                                <span>0734 XXX XXX</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-car"></i>
-                                <span>Parcare Disponibilă</span>
-                            </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Str. Republicii, Nr. 15</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>11:00 - 23:00</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0734 XXX XXX</span>
                         </div>
                         <div class="location-actions">
-                            <a href="https://maps.google.com" target="_blank" class="btn-map">
-                                🗺️ Deschide în Maps
-                            </a>
-                            <a href="tel:0734XXXXXX" class="btn-call">
-                                📞 Sună Acum
-                            </a>
+                            <a href="https://maps.app.goo.gl/69j62PDmTJc47ukH9" target="_blank" class="btn-map">🗺️ Maps</a>
+                            <a href="tel:0734XXX" class="btn-call">📞 Sună</a>
                         </div>
                     </div>
-                    
+
                     <div class="location-card">
                         <div class="location-header">
                             <h3 class="location-name">PÂRJOL</h3>
                             <span class="location-badge">⭐ Nou</span>
                         </div>
-                        <div class="location-details">
-                            <div class="location-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Str. Principală, Nr. 23, Pârjol</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span><strong>Luni - Duminică:</strong> 10:00 - 22:00</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-phone"></i>
-                                <span>0734 XXX XXX</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-car"></i>
-                                <span>Parcare Disponibilă</span>
-                            </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Str. Principală, Nr. 23</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10:00 - 22:00</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0734 XXX XXX</span>
                         </div>
                         <div class="location-actions">
-                            <a href="https://maps.google.com" target="_blank" class="btn-map">
-                                🗺️ Deschide în Maps
-                            </a>
-                            <a href="tel:0734XXXXXX" class="btn-call">
-                                📞 Sună Acum
-                            </a>
+                            <a href="https://maps.app.goo.gl/56i5JBoJYoWu73iAA" target="_blank" class="btn-map">🗺️ Maps</a>
+                            <a href="tel:0734XXX" class="btn-call">📞 Sună</a>
                         </div>
                     </div>
-                    
+
                     <div class="location-card">
                         <div class="location-header">
                             <h3 class="location-name">BACĂU</h3>
                             <span class="location-badge">💎 Premium</span>
                         </div>
-                        <div class="location-details">
-                            <div class="location-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Str. Mihai Eminescu, Nr. 45, Bacău</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span><strong>Luni - Duminică:</strong> 11:00 - 22:00</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-phone"></i>
-                                <span>0734 XXX XXX</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-car"></i>
-                                <span>Parcare Disponibilă</span>
-                            </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Str. M. Eminescu, Nr. 45</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>11:00 - 22:00</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0734 XXX XXX</span>
                         </div>
                         <div class="location-actions">
-                            <a href="https://maps.google.com" target="_blank" class="btn-map">
-                                🗺️ Deschide în Maps
-                            </a>
-                            <a href="tel:0734XXXXXX" class="btn-call">
-                                📞 Sună Acum
-                            </a>
+                            <a href="https://maps.app.goo.gl/qRRF6KzvKt8Dn3XH9" target="_blank" class="btn-map">🗺️ Maps</a>
+                            <a href="tel:0734XXX" class="btn-call">📞 Sună</a>
                         </div>
                     </div>
-                    
+                </div>
+
+                <!-- A doua linie - 2 locații (centralizate) -->
+                <div class="locations-row-2">
                     <div class="location-card">
                         <div class="location-header">
                             <h3 class="location-name">COMĂNEȘTI</h3>
                             <span class="location-badge">🌟 Top</span>
                         </div>
-                        <div class="location-details">
-                            <div class="location-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Str. Centrală, Nr. 78, Comănești</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span><strong>Luni - Duminică:</strong> 11:00 - 23:00</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-phone"></i>
-                                <span>0734 XXX XXX</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-car"></i>
-                                <span>Parcare Disponibilă</span>
-                            </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Str. Centrală, Nr. 78</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>11:00 - 23:00</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0734 XXX XXX</span>
                         </div>
                         <div class="location-actions">
-                            <a href="https://maps.google.com" target="_blank" class="btn-map">
-                                🗺️ Deschide în Maps
-                            </a>
-                            <a href="tel:0734XXXXXX" class="btn-call">
-                                📞 Sună Acum
-                            </a>
+                            <a href="https://maps.app.goo.gl/H5gCjWWBKEwutTEC6" target="_blank" class="btn-map">🗺️ Maps</a>
+                            <a href="tel:0734XXX" class="btn-call">📞 Sună</a>
                         </div>
                     </div>
-                    
+
                     <div class="location-card">
                         <div class="location-header">
                             <h3 class="location-name">ROMAN</h3>
                             <span class="location-badge">❤️ Favorit</span>
                         </div>
-                        <div class="location-details">
-                            <div class="location-detail-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Str. Stefan cel Mare, Nr. 120, Roman</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-clock"></i>
-                                <span><strong>Luni - Duminică:</strong> 10:00 - 22:00</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-phone"></i>
-                                <span>0734 XXX XXX</span>
-                            </div>
-                            <div class="location-detail-item">
-                                <i class="fas fa-car"></i>
-                                <span>Parcare Disponibilă</span>
-                            </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Str. Ștefan cel Mare, Nr. 120</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10:00 - 22:00</span>
+                        </div>
+                        <div class="location-detail-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0734 XXX XXX</span>
                         </div>
                         <div class="location-actions">
-                            <a href="https://maps.google.com" target="_blank" class="btn-map">
-                                🗺️ Deschide în Maps
-                            </a>
-                            <a href="tel:0734XXXXXX" class="btn-call">
-                                📞 Sună Acum
-                            </a>
+                            <a href="https://maps.app.goo.gl/J4whLriSLevistcbA" target="_blank" class="btn-map">🗺️ Maps</a>
+                            <a href="tel:0734XXX" class="btn-call">📞 Sună</a>
                         </div>
                     </div>
                 </div>
@@ -1761,118 +1948,13 @@
         </div>
     </section>
 
-    <!-- Franchise Section -->
-    <section class="section franchise" id="franciza">
+    <!-- Testimonials -->
+    <section class="testimonials">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge" style="background: rgba(255,215,0,0.2); color: var(--primary-red);">Oportunitate de Afaceri</span>
-                <h2 class="section-title">Deschide Propria Ta Franciză</h2>
-                <p class="section-subtitle">
-                    Alătură-te uneia dintre cele mai profitabile rețele de fast-food din România
-                </p>
-            </div>
-            
-            <div class="franchise-content">
-                <div class="franchise-info">
-                    <h3>DE CE BOERU'S DONER?</h3>
-                    <p>
-                        Boeru's Doner oferă una dintre cele mai accesibile oportunități de franciză din 
-                        industria fast-food din România. Cu o investiție inițială de doar 5000 EUR, poți 
-                        deveni parte dintr-un brand recunoscut și profitabil.
-                    </p>
-                    
-                    <div class="franchise-benefits">
-                        <div class="benefit-item">
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <h4>ROI Rapid</h4>
-                                <p>Returnare investiție în 12-18 luni</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-handshake"></i>
-                            <div>
-                                <h4>Suport Complet</h4>
-                                <p>Training, marketing și asistență operațională</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-store"></i>
-                            <div>
-                                <h4>Brand Puternic</h4>
-                                <p>Recunoaștere pe piață și bază de clienți fidelă</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <div>
-                                <h4>Training Intensiv</h4>
-                                <p>Program complet de pregătire 2 săptămâni</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-bullhorn"></i>
-                            <div>
-                                <h4>Marketing Național</h4>
-                                <p>Campanii publicitare susținute central</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="franchise-price">
-                        <i class="fas fa-tag"></i>
-                        <div>
-                            <h4>Investiție Inițială</h4>
-                            <p>5.000 EUR</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-info">
-                    <h3 style="margin-bottom: 30px; font-size: 2rem;">Contactează-ne pentru Detalii</h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h4>Telefon</h4>
-                            <p>0734 XXX XXX</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7610041718151f0c17361419130403051219181304580419">[email&#160;protected]</a></p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div>
-                            <h4>Program Consultanță</h4>
-                            <p>Luni - Vineri: 09:00 - 18:00</p>
-                        </div>
-                    </div>
-                    
-                    <a href="#contact" class="btn-primary" style="margin-top: 30px; width: 100%; justify-content: center;">
-                        📩 Solicită Informații
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="section testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Testimoniale</span>
-                <h2 class="section-title">Ce Spun Clienții Noștri</h2>
-                <p class="section-subtitle">
-                    Peste 50.000 de clienți mulțumiți care se bucură de preparatele noastre
-                </p>
-            </div>
+            <h2 class="section-title-centered">CE SPUN CLIENȚII NOȘTRI</h2>
+            <p class="section-subtitle-centered">
+                Peste 50.000 de clienți mulțumiți care se bucură de preparatele noastre
+            </p>
             
             <div class="testimonials-slider">
                 <div class="testimonial-card">
@@ -1901,19 +1983,119 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
+    <!-- Franchise - IMPROVED SECTION -->
+    <section class="franchise" id="franciza">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge" style="background: rgba(255,255,255,0.1); color: white;">Contact</span>
-                <h2 class="section-title">Contactează-ne</h2>
-                <p class="section-subtitle">
-                    Suntem aici să răspundem la toate întrebările tale
-                </p>
+            <h2 class="section-title-centered">DESCHIDE FRANCIZA TA</h2>
+            <p class="section-subtitle-centered">
+                Alătură-te uneia dintre cele mai profitabile rețele din România
+            </p>
+
+            <div class="franchise-content">
+                <div class="franchise-info">
+                    <h3>DE CE BOERU'S DONER?</h3>
+                    <p>
+                        Cu o investiție accesibilă, poți deveni parte dintr-un brand recunoscut pe plan național. 
+                        Oferim suport complet: training, marketing și asistență operațională pentru a-ți garanta succesul.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-crown"></i>
+                            <div>
+                                <h4>Brand Puternic</h4>
+                                <p>Recunoscut pe plan național, din ce în ce mai apreciat de clienți</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>Know-how Complet</h4>
+                                <p>Afacere la cheie cu toate instrumentele necesare pentru management simplu</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Model Testat</h4>
+                                <p>Peste 70 de locații de succes în țară, experiență solidă</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-hands-helping"></i>
+                            <div>
+                                <h4>Suport Continuu</h4>
+                                <p>Training intensiv 2 luni + instruiri periodice pentru standarde înalte</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h4>Produse Premium</h4>
+                                <p>Preparate unice cu ingrediente de calitate superioară</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <div>
+                                <h4>Marketing Centralizat</h4>
+                                <p>Campanii naționale + suport de specialiști în marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="franchise-cta">
+                    <h3>Ești Partenerul Potrivit?</h3>
+                    <p style="margin-bottom: 25px; color: rgba(255,255,255,0.85); font-size: 1rem; line-height: 1.7;">
+                        Căutăm oameni dedicați, cu spirit antreprenorial și dornici de succes. Dacă vrei să faci parte din brandul nostru, contactează-ne!
+                    </p>
+
+                    <div class="contact-mini">
+                        <div class="contact-mini-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h5>Telefon</h5>
+                                <p>0734 XXX XXX</p>
+                            </div>
+                        </div>
+                        <div class="contact-mini-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p>franciza@boerusdoner.ro</p>
+                            </div>
+                        </div>
+                        <div class="contact-mini-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h5>Program</h5>
+                                <p>Luni - Vineri: 09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center; display: block; margin-bottom: 20px;">📩 Solicită Informații</a>
+
+                    <div class="franchise-price">
+                        <h4>Investiție Inițială</h4>
+                        <p>5.000 EUR</p>
+                    </div>
+                </div>
             </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title-centered">CONTACTEAZĂ-NE</h2>
+            <p class="section-subtitle-centered">
+                Suntem aici pentru tine
+            </p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info-section">
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div>
@@ -1922,41 +2104,88 @@
                             <p>Luni - Duminică: 10:00 - 22:00</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
                         <div>
                             <h4>Email</h4>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5d6dadbc1d4d6c1f5d7dad0c7c0c6d1dadbd0c79bc7da">[email&#160;protected]</a></p>
-                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb8884868e859182ab89848e999e988f84858e99c59984">[email&#160;protected]</a></p>
+                            <p>contact@boerusdoner.ro</p>
+                            <p>franciza@boerusdoner.ro</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div>
                             <h4>Sediul Central</h4>
                             <p>Str. Principală Nr. 1</p>
-                            <p>Roman, Neamț, România</p>
+                            <p>Roman, Neamț</p>
                         </div>
                     </div>
-                    
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+
+                    <div class="social-section">
+                        <h4>Social Media</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-tiktok"></i>
+                                <span>TikTok</span>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                
-                <div style="background: rgba(255,255,255,0.05); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px);">
-                    <h3 style="margin-bottom: 30px; font-size: 2rem;">Trimite-ne un Mesaj</h3>
-                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 30px;">
-                        Completează formularul și te vom contacta în cel mai scurt timp posibil.
-                    </p>
-                    <a href="/cdn-cgi/l/email-protection#6704080913060413270508021512140308090215491508" class="btn-primary" style="width: 100%; justify-content: center;">
-                        📧 Trimite Email
-                    </a>
+
+                <div class="contact-form-wrapper">
+                    <h3>Trimite-ne un Mesaj</h3>
+
+                    <div id="successMessage" class="message success">
+                        ✓ Mesaj trimis cu succes! Te contactăm în curând.
+                    </div>
+                    <div id="errorMessage" class="message error">
+                        ✗ A apărut o eroare. Te rugăm să încerci din nou.
+                    </div>
+
+                    <form id="contactForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+                        <input type="hidden" name="_subject" value="Contact Nou: Boeru's Doner">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://yourdomain.com/success.html">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Nume *</label>
+                                <input type="text" name="Nume" class="form-input" required placeholder="Numele tău">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email *</label>
+                                <input type="email" name="Email" class="form-input" required placeholder="email@exemplu.ro">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Telefon</label>
+                            <input type="tel" name="Telefon" class="form-input" placeholder="0734 XXX XXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Mesaj *</label>
+                            <textarea name="Mesaj" class="form-textarea" required placeholder="Scrie mesajul tău aici..."></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            📧 Trimite Mesajul
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1968,168 +2197,165 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo-wrapper">
-                        <div class="logo-icon">🌯</div>
+                        <div class="logo-icon">
+                            <img src="images/logo.png" alt="Logo">
+                        </div>
                         <div class="logo-text">BOERU'S DONER</div>
                     </div>
-                    <p>
-                        Suntem dedicați să aducem gustul autentic al shaormei tradiționale în fiecare 
-                        colț al României. Cu ingrediente proaspete și rețete testate, garantăm calitate 
-                        premium la fiecare comandă.
+                    <p style="color: rgba(255,255,255,.7); margin-top: 15px">
+                        Gustul autentic al României în fiecare mușcătură.
                     </p>
                 </div>
-                
+
                 <div class="footer-column">
-                    <h4>Link-uri Rapide</h4>
+                    <h4>Link-uri</h4>
                     <ul class="footer-links">
                         <li><a href="#acasa">Acasă</a></li>
-                        <li><a href="#despre">Despre Noi</a></li>
+                        <li><a href="#despre">Despre</a></li>
                         <li><a href="meniu.html">Meniu</a></li>
                         <li><a href="#locatii">Locații</a></li>
                         <li><a href="#franciza">Franciză</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Locații</h4>
                     <ul class="footer-links">
-                        <li><a href="#locatii">Moinești - 11:00-23:00</a></li>
-                        <li><a href="#locatii">Pârjol - 10:00-22:00</a></li>
-                        <li><a href="#locatii">Bacău - 11:00-22:00</a></li>
-                        <li><a href="#locatii">Comănești - 11:00-23:00</a></li>
-                        <li><a href="#locatii">Roman - 10:00-22:00</a></li>
+                        <li><a href="#locatii">Moinești</a></li>
+                        <li><a href="#locatii">Pârjol</a></li>
+                        <li><a href="#locatii">Bacău</a></li>
+                        <li><a href="#locatii">Comănești</a></li>
+                        <li><a href="#locatii">Roman</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="tel:0734XXXXXX">📱 0734 XXX XXX</a></li>
-                        <li><a href="/cdn-cgi/l/email-protection#51323e3f2530322511333e34232422353e3f34237f233e">📧 Email</a></li>
+                        <li><a href="tel:0734XXX">📱 0734 XXX</a></li>
+                        <li><a href="mailto:contact@boerusdoner.ro">📧 Email</a></li>
                         <li><a href="angajare.html">💼 Cariere</a></li>
                         <li><a href="#franciza">🤝 Franciză</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Boeru's Doner. Toate drepturile rezervate. | Design by Cosmin Buzău</p>
+                <p>&copy; 2024 Boeru's Doner. Toate drepturile rezervate.</p>
             </div>
         </div>
     </footer>
 
-   <script>
-// Loading Screen - SOLUȚIE GARANTATĂ
-window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    if (loader) {
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.add('fade-out');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                    }, 600);
+                }, 1000);
+            }
+        });
+
         setTimeout(() => {
-            loader.classList.add('fade-out');
-            // Fallback: ascunde complet după animație
-            setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
                 loader.style.display = 'none';
-            }, 600);
-        }, 1000); // Reduce timpul la 1 secundă
-    }
-});
+            }
+        }, 3000);
 
-// Fallback de siguranță - dacă după 3 secunde încă e vizibil, forțează ascunderea
-setTimeout(() => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-        loader.style.opacity = '0';
-        loader.style.visibility = 'hidden';
-        loader.style.display = 'none';
-    }
-}, 3000);
+        // Header Scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
 
-// Header Scroll Effect
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+        // Mobile Menu
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
-// Mobile Menu Toggle
-const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-const navMenu = document.getElementById('navMenu');
-
-mobileMenuToggle.addEventListener('click', function() {
-    this.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const headerHeight = document.getElementById('header').offsetHeight;
-            const targetPosition = target.offsetTop - headerHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    window.scrollTo({
+                        top: target.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                }
             });
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+        });
+
+        // Testimonials Slider
+        const testimonials = [
+            {
+                text: "Cea mai bună shaorma pe care am mâncat-o vreodată! Ingredientele sunt super proaspete, porțiile generoase și prețurile foarte bune. Comand de la Boeru's Doner săptămânal. Recomand cu încredere!",
+                name: "Andrei Mihai",
+                role: "Client Fidel - Bacău"
+            },
+            {
+                text: "Servicii excelente! Personalul este amabil și rapid, iar mâncarea întotdeauna delicioasă. Meniul Bagheta Crispy este preferatul meu. 5 stele meritate!",
+                name: "Maria Popescu",
+                role: "Client Regulat - Roman"
+            },
+            {
+                text: "Am descoperit Boeru's Doner recent și acum comand doar de aici. Raportul calitate-preț este imbatabil. Recomand Box-ul de Pui!",
+                name: "Ion Constantin",
+                role: "Client - Moinești"
+            }
+        ];
+
+        let currentTestimonial = 0;
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial();
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial();
+        });
+
+        function updateTestimonial() {
+            const card = document.querySelector('.testimonial-card');
+            card.style.opacity = '0';
+            setTimeout(() => {
+                const testimonial = testimonials[currentTestimonial];
+                card.querySelector('.testimonial-text').textContent = `"${testimonial.text}"`;
+                card.querySelector('.author-name').textContent = testimonial.name;
+                card.querySelector('.author-role').textContent = testimonial.role;
+                card.querySelector('.author-image').textContent = testimonial.name.split(' ').map(n => n[0]).join('');
+                card.style.opacity = '1';
+            }, 300);
         }
-    });
-});
 
-// Testimonials Slider
-const testimonials = [
-    {
-        text: "Cea mai bună shaorma pe care am mâncat-o vreodată! Ingredientele sunt super proaspete, porțiile generoase și prețurile foarte bune. Comand de la Boeru's Doner săptămânal. Recomand cu încredere!",
-        name: "Andrei Mihai",
-        role: "Client Fidel - Bacău"
-    },
-    {
-        text: "Servicii excelente! Personalul este amabil și rapid, iar mâncarea întotdeauna delicioasă. Meniul Bagheta Crispy este preferatul meu. 5 stele meritate!",
-        name: "Maria Popescu",
-        role: "Client Regulat - Roman"
-    },
-    {
-        text: "Am descoperit Boeru's Doner recent și acum comand doar de aici. Raportul calitate-preț este imbatabil. Recomand Box-ul de Pui!",
-        name: "Ion Constantin",
-        role: "Client - Moinești"
-    }
-];
+        // Form Submit
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
 
-let currentTestimonial = 0;
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-    updateTestimonial();
-});
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-    updateTestimonial();
-});
-
-function updateTestimonial() {
-    const card = document.querySelector('.testimonial-card');
-    card.style.opacity = '0';
-    setTimeout(() => {
-        const testimonial = testimonials[currentTestimonial];
-        card.querySelector('.testimonial-text').textContent = `"${testimonial.text}"`;
-        card.querySelector('.author-name').textContent = testimonial.name;
-        card.querySelector('.author-role').textContent = testimonial.role;
-        card.querySelector('.author-image').textContent = testimonial.name.split(' ').map(n => n[0]).join('');
-        card.style.opacity = '1';
-    }, 300);
-}
-
-// Location Cards Click
-document.querySelectorAll('.location-card').forEach(card => {
-    card.addEventListener('click', function() {
-        document.querySelectorAll('.location-card').forEach(c => c.classList.remove('active'));
-        this.classList.add('active');
-    });
-});
-</script>
+        form.addEventListener('submit', function(e) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Se trimite...';
+            successMsg.classList.remove('show');
+            errorMsg.classList.remove('show');
+        });
+    </script>
 </body>
 </html>

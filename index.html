@@ -7,6 +7,8 @@
     <meta name="description" content="Boeru's Doner - Cea mai ieftină franciză de shaormerie din România. 5 locații, ingrediente proaspete, prețuri accesibile.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
         :root {
             --primary-red: #C91F1F;
@@ -796,72 +798,57 @@
             margin-bottom: 50px;
         }
 
-        .map-container iframe {
-            border-radius: 25px;
-        }
-
-        /* Map Pins */
-        .map-pins {
-            position: absolute;
-            top: 0;
-            left: 0;
+        #map {
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 10;
+            border-radius: 25px;
+            z-index: 1;
         }
 
-        .map-pin {
-            position: absolute;
-            cursor: pointer;
-            pointer-events: all;
-            transition: var(--transition);
-        }
-
-        .pin-marker {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 4px 8px rgba(201, 31, 31, 0.5));
-            animation: bounce-pin 2s infinite;
-        }
-
-        @keyframes bounce-pin {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .pin-popup {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 12px 20px;
+        /* Leaflet Popup Styles */
+        .leaflet-popup-content-wrapper {
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
-
-        .pin-popup::after {
+        
+        .popup-content {
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .popup-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+        
+        .popup-city {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .custom-marker {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--deep-red) 100%);
+            width: 35px;
+            height: 35px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        .custom-marker::after {
             content: '';
             position: absolute;
-            top: 100%;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
-            border: 8px solid transparent;
-            border-top-color: white;
-        }
-
-        .map-pin:hover .pin-popup {
-            opacity: 1;
-            visibility: visible;
-            bottom: 110%;
+            transform: translate(-50%, -50%);
         }
 
         /* Locations Grid - 3 + 2 Layout */
@@ -1576,27 +1563,397 @@
             .franchise-cta {
                 position: static;
             }
+
+            /* Franchise mobile improvements */
+            .franchise {
+                padding: 60px 20px;
+            }
+
+            .franchise-content {
+                padding: 0;
+                gap: 30px;
+            }
+
+            .franchise-info h3 {
+                font-size: 2.2rem;
+                text-align: center;
+            }
+
+            .franchise-info > p {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            .benefits-grid {
+                gap: 15px;
+            }
+
+            .benefit-item {
+                padding: 18px;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .benefit-item i {
+                margin-top: 0;
+            }
+
+            .franchise-cta {
+                padding: 30px 20px;
+            }
+
+            .franchise-cta h3 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+
+            /* Contact mobile improvements */
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .contact-wrapper {
+                gap: 30px;
+            }
+
+            .contact-info-section {
+                gap: 20px;
+            }
+
+            .contact-item {
+                padding: 20px;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .contact-form h3 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
         }
 
         @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Hero improvements */
+            .hero {
+                min-height: auto;
+                padding: 80px 0 40px;
+            }
+
+            .hero-content {
+                padding: 100px 20px 40px;
+                gap: 40px;
+            }
+
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .hero-badge {
+                font-size: 0.85rem;
             }
 
             .hero-stats {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                height: 400px;
+            }
+
+            /* Section titles */
+            .section-title-centered {
+                font-size: 2rem;
+            }
+
+            .section-subtitle-centered {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            /* About section */
+            .about {
+                padding: 60px 0;
+            }
+
+            .about-text h3 {
+                font-size: 2rem;
+                text-align: center;
+            }
+
+            .about-text p {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            /* Menu preview */
+            .menu-preview {
+                padding: 60px 20px;
+            }
+
+            .menu-intro {
+                padding: 40px 20px;
+            }
+
+            .menu-intro h3 {
+                font-size: 2rem;
+            }
+
+            .menu-intro p {
+                font-size: 1rem;
+            }
+
+            .stats-mini strong {
+                font-size: 2rem;
+            }
+
+            /* Map */
+            .map-container {
+                height: 400px;
+            }
+
+            /* Locations */
+            .locations {
+                padding: 60px 20px;
+            }
+
+            .location-card {
+                padding: 20px;
+            }
+
+            .location-name {
+                font-size: 1.4rem;
+            }
+
+            /* Testimonials */
+            .testimonials {
+                padding: 60px 20px;
+            }
+
+            .testimonial-card {
+                padding: 40px 20px;
+            }
+
+            .testimonial-text {
+                font-size: 1.1rem;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-info {
+                text-align: center;
+            }
+
+            .slider-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            /* Franchise mobile specific */
+            .franchise {
+                padding: 60px 15px;
+            }
+
+            .section-title-centered {
+                font-size: 1.8rem;
+                padding: 0 15px;
+            }
+
+            .franchise-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .benefit-item {
+                padding: 15px;
+                border-left: none;
+                border-top: 4px solid var(--primary-red);
+            }
+
+            .benefit-item h4 {
+                font-size: 1.1rem;
+            }
+
+            .benefit-item p {
+                font-size: 0.9rem;
+            }
+
+            .franchise-cta {
+                padding: 25px 15px;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .contact-mini-item {
+                padding: 15px;
+                flex-direction: column;
+            }
+
+            .franchise-price {
+                padding: 25px;
+            }
+
+            .franchise-price p {
+                font-size: 2rem;
+            }
+
+            /* Contact mobile specific */
+            .contact {
+                padding: 60px 15px;
+            }
+
+            .contact-item {
+                padding: 18px;
+                border-left: none;
+                border-top: 3px solid var(--primary-red);
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .contact-item h4 {
+                font-size: 1rem;
+            }
+
+            .contact-item p {
+                font-size: 0.9rem;
+            }
+
+            .social-section {
+                margin-top: 20px;
+            }
+
+            .social-section h4 {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            .social-links {
+                grid-template-columns: 1fr;
+            }
+
+            .social-link {
+                padding: 15px;
+            }
+
+            .contact-form-wrapper {
+                padding: 25px 15px;
+            }
+
+            .form-input,
+            .form-textarea {
+                padding: 12px 15px;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .form-submit {
+                padding: 14px;
+                font-size: 1rem;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 40px 20px 20px;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
 
             .logo-text {
                 font-size: 1.2rem;
             }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                height: 300px;
+                font-size: 5rem;
+            }
+
+            .hero-decoration {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .section-title-centered {
+                font-size: 1.6rem;
+            }
+
+            .franchise-info h3 {
+                font-size: 1.6rem;
+            }
+
+            .franchise-cta h3 {
+                font-size: 1.4rem;
+            }
+
+            .contact-form h3 {
+                font-size: 1.4rem;
+            }
 
             .map-container {
-                height: 450px;
+                height: 350px;
+            }
+
+            .stat-number {
+                font-size: 2.2rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                font-size: 0.95rem;
+                padding: 14px 25px;
             }
         }
     </style>
@@ -1686,9 +2043,7 @@
             
             <div class="hero-visual">
                 <div class="hero-image-wrapper">
-                    <div class="hero-image">
-                        <img src="images/shaorma.png" alt="Shaorma Boeru's Doner" style="width:100%; height:100%; object-fit:cover;">
-                    </div>
+                    <div class="hero-image">🌯</div>
                     <div class="hero-decoration top">⭐</div>
                     <div class="hero-decoration bottom">🔥</div>
                 </div>
@@ -1749,10 +2104,7 @@
                 
                 <div class="hero-visual">
                     <div class="hero-image-wrapper">
-                        <div class="hero-image">
-                             <img src="images/despre-noi.png" alt="Despre Noi" style="width:100%; height:100%; object-fit:cover;">
-                        </div>
-
+                        <div class="hero-image">🍖</div>
                         <div class="hero-decoration top">🌟</div>
                         <div class="hero-decoration bottom">❤️</div>
                     </div>
@@ -1791,36 +2143,7 @@
             <p class="section-subtitle-centered">5 locații în toată țara</p>
 
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d360658.97773!2d26.3!3d46.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDQyJzAwLjAiTiAyNsKwMTgnMDAuMCJF!5e0!3m2!1sen!2sro!4v1234567890&z=9" width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe>
-                
-                <!-- Map Pins - UPDATED WITH CORRECT POSITIONS -->
-                <div class="map-pins">
-                    <!-- Roman -->
-                    <div class="map-pin" style="top: 23%; left: 56%;" onclick="window.open('https://maps.app.goo.gl/J4whLriSLevistcbA', '_blank')">
-                        <div class="pin-marker">📍</div>
-                        <div class="pin-popup"><strong>🌟 Roman</strong></div>
-                    </div>
-                    <!-- Bacău -->
-                    <div class="map-pin" style="top: 43%; left: 59%;" onclick="window.open('https://maps.app.goo.gl/qRRF6KzvKt8Dn3XH9', '_blank')">
-                        <div class="pin-marker">📍</div>
-                        <div class="pin-popup"><strong>💎 Bacău</strong></div>
-                    </div>
-                    <!-- Pârjol -->
-                    <div class="map-pin" style="top: 38%; left: 50%;" onclick="window.open('https://maps.app.goo.gl/56i5JBoJYoWu73iAA', '_blank')">
-                        <div class="pin-marker">📍</div>
-                        <div class="pin-popup"><strong>⭐ Pârjol</strong></div>
-                    </div>
-                    <!-- Moinești -->
-                    <div class="map-pin" style="top: 50%; left: 45%;" onclick="window.open('https://maps.app.goo.gl/69j62PDmTJc47ukH9', '_blank')">
-                        <div class="pin-marker">📍</div>
-                        <div class="pin-popup"><strong>🔥 Moinești</strong></div>
-                    </div>
-                    <!-- Comănești -->
-                    <div class="map-pin" style="top: 58%; left: 40%;" onclick="window.open('https://maps.app.goo.gl/H5gCjWWBKEwutTEC6', '_blank')">
-                        <div class="pin-marker">📍</div>
-                        <div class="pin-popup"><strong>🌟 Comănești</strong></div>
-                    </div>
-                </div>
+                <div id="map"></div>
             </div>
 
             <div class="locations-grid">
@@ -2063,7 +2386,7 @@
                             <i class="fas fa-envelope"></i>
                             <div>
                                 <h5>Email</h5>
-                                <p>franciza@boerusdoner.ro</p>
+                                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88eefae9e6ebe1f2e9c8eae7edfafdfbece7e6edfaa6fae7">[email&#160;protected]</a></p>
                             </div>
                         </div>
                         <div class="contact-mini-item">
@@ -2109,8 +2432,8 @@
                         <div class="contact-icon">📧</div>
                         <div>
                             <h4>Email</h4>
-                            <p>contact@boerusdoner.ro</p>
-                            <p>franciza@boerusdoner.ro</p>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="34575b5a4055574074565b51464147505b5a51461a465b">[email&#160;protected]</a></p>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="630511020d000a190223010c06111610070c0d06114d110c">[email&#160;protected]</a></p>
                         </div>
                     </div>
 
@@ -2233,7 +2556,7 @@
                     <h4>Contact</h4>
                     <ul class="footer-links">
                         <li><a href="tel:0734XXX">📱 0734 XXX</a></li>
-                        <li><a href="mailto:contact@boerusdoner.ro">📧 Email</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#d7b4b8b9a3b6b4a397b5b8b2a5a2a4b3b8b9b2a5f9a5b8">📧 Email</a></li>
                         <li><a href="angajare.html">💼 Cariere</a></li>
                         <li><a href="#franciza">🤝 Franciză</a></li>
                     </ul>
@@ -2246,7 +2569,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Loading Screen
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
@@ -2355,6 +2678,66 @@
             submitBtn.textContent = 'Se trimite...';
             successMsg.classList.remove('show');
             errorMsg.classList.remove('show');
+        });
+
+        // Leaflet Map Initialization
+        const locations = [
+            {
+                name: "Boeru's Doner Roman",
+                coordinates: [46.925805, 26.926722],
+                city: "Roman",
+                link: "https://maps.app.goo.gl/J4whLriSLevistcbA"
+            },
+            {
+                name: "Boeru's Doner Bacău",
+                coordinates: [46.567036, 26.914722],
+                city: "Bacău",
+                link: "https://maps.app.goo.gl/qRRF6KzvKt8Dn3XH9"
+            },
+            {
+                name: "Boeru's Doner Pârjol",
+                coordinates: [46.586952, 26.610302],
+                city: "Pârjol",
+                link: "https://maps.app.goo.gl/56i5JBoJYoWu73iAA"
+            },
+            {
+                name: "Boeru's Doner Moinești",
+                coordinates: [46.475833, 26.483056],
+                city: "Moinești",
+                link: "https://maps.app.goo.gl/69j62PDmTJc47ukH9"
+            },
+            {
+                name: "Boeru's Doner Comănești",
+                coordinates: [46.421944, 26.446389],
+                city: "Comănești",
+                link: "https://maps.app.goo.gl/H5gCjWWBKEwutTEC6"
+            }
+        ];
+
+        const map = L.map('map').setView([46.6, 26.7], 9);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap',
+            maxZoom: 19
+        }).addTo(map);
+
+        const customIcon = L.divIcon({
+            className: 'custom-marker',
+            iconSize: [35, 35],
+            iconAnchor: [17, 35],
+            popupAnchor: [0, -35]
+        });
+
+        locations.forEach(location => {
+            const marker = L.marker(location.coordinates, { icon: customIcon })
+                .addTo(map)
+                .bindPopup(`
+                    <div class="popup-content">
+                        <div class="popup-title">${location.name}</div>
+                        <div class="popup-city">${location.city}</div>
+                        <a href="${location.link}" target="_blank" style="display:inline-block;margin-top:10px;padding:8px 16px;background:linear-gradient(135deg, var(--primary-red), var(--deep-red));color:white;text-decoration:none;border-radius:8px;font-size:13px;font-weight:600;">Deschide în Maps</a>
+                    </div>
+                `);
         });
     </script>
 </body>
